@@ -6,3 +6,7 @@
   border-bottom: 1px solid #b6c7b6;
   height: 20px;
 }
+
+.success-notification > i {
+  margin-left: 10px;
+}

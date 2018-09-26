@@ -16,20 +16,29 @@ export default compose(
   withState('workerLiked', 'setWorkerLiked', ''),
   withState('workerDisliked', 'setWorkerDisliked', ''),
   withState('notification', 'setNotification', ''),
+  withState('timeoutId', 'setTimeoutId', ''),
   withPropsOnChange((props, nextProps) => props.userReducer.likedWorkers.length
-  !== nextProps.userReducer.likedWorkers.length, ({ setWorkerLiked, userReducer, setNotification }) => {
+  !== nextProps.userReducer.likedWorkers.length, ({ setWorkerLiked, userReducer,
+    setNotification, setTimeoutId, timeoutId,
+  }) => {
     if (userReducer.likedWorkers.length) {
       setWorkerLiked(userReducer.likedWorkers[userReducer.likedWorkers.length - 1]);
       setNotification(notificationTypes.SUCCESS);
-      setTimeout(() => setNotification(''), 3000);
+      clearTimeout(timeoutId);
+      const id = setTimeout(() => setNotification(''), 3000);
+      setTimeoutId(id);
     }
   }),
   withPropsOnChange((props, nextProps) => props.userReducer.dislikedWorkers.length
-  !== nextProps.userReducer.dislikedWorkers.length, ({ setWorkerDisliked, userReducer, setNotification }) => {
+  !== nextProps.userReducer.dislikedWorkers.length, ({ setWorkerDisliked, userReducer, 
+    setNotification, setTimeoutId, timeoutId,
+  }) => {
     if (userReducer.dislikedWorkers.length) {
       setWorkerDisliked(userReducer.dislikedWorkers[userReducer.dislikedWorkers.length - 1]);
       setNotification(notificationTypes.WARNING);
-      setTimeout(() => setNotification(''), 3000);
+      clearTimeout(timeoutId);
+      const id = setTimeout(() => setNotification(''), 3000);
+      setTimeoutId(id);
     }
   }),
 )(WorkerSelectForMovie);

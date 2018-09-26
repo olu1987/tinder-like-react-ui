@@ -1,0 +1,12 @@
+.warning-notification{
+  width: 100%;
+  padding: 10px;
+  background: #f47b7b;
+  color: #fff;
+  border-bottom: 1px solid red;
+  height: 20px;
+}
+
+.warning-notification > i {
+  margin-left: 10px;
+}

@@ -21,13 +21,13 @@
   font-size: 4em;
 }
 
-.success-notification {
+.success-notification, .warning-notification {
   position: fixed;
   top: -42px;
   transition: all ease-in-out 300ms;
 }
 
-.success-notification.active {
+.success-notification.active, .warning-notification.active {
   top: 0;
 }
 
