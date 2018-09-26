@@ -8,6 +8,10 @@
   overflow: hidden;
 }
 
+.worker-select-for-movie > h2 {
+  margin-top: 0;
+}
+
 .worker-select-for-movie > .actions {
   display: flex;
   height: 100px;
@@ -15,6 +19,16 @@
   justify-content: space-between;
   margin-top: auto;
   font-size: 4em;
+}
+
+.success-notification {
+  position: fixed;
+  top: -42px;
+  transition: all ease-in-out 300ms;
+}
+
+.success-notification.active {
+  top: 0;
 }
 
 .worker-select-for-movie > .movie-logo {

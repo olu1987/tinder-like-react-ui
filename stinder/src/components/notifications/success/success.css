@@ -1,0 +1,8 @@
+.success-notification{
+  width: 100%;
+  padding: 10px;
+  background: #58e371;
+  color: #fff;
+  border-bottom: 1px solid #b6c7b6;
+  height: 20px;
+}
