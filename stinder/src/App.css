@@ -3,11 +3,4 @@ html, body, body > div{
   width: 100%;
 }
 
-.App {
-  height: 100%;
-  text-align: center;
-  background-color: #e3e3e3;
-  display: flex;
-  justify-content: center;
-}
 

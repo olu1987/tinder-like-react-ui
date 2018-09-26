@@ -1,13 +1,11 @@
 import React from 'react';
 
-import WorkerCardList from './containers/worker-card-list';
+import WorkerSelectForMovie from './containers/worker-select-for-movie';
 
 import './App.css';
 
 const App = () => (
-  <div className="App">
-    <WorkerCardList />
-  </div>
+  <WorkerSelectForMovie />
 );
 
 export default App;
