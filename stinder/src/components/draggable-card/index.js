@@ -1,32 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Draggable from 'react-draggable';
+import { compose, withHandlers, withState } from 'recompose';
+import DraggableCard from './draggable-card';
 
-import './draggable-card.css';
 
-const Card = ({ name, imageSrc }) => {
-  const imageStyle = {
-    backgroundImage: `url(${imageSrc})`,
+export default compose(
+ withState('position', 'setPosition', null),
+ withState('resetPosition', 'setResetPosition', false),
+ withState('animateOutRight', 'setAnimateOutRight', false),
+ withState('animateOutLeft', 'setAnimateOutLeft', false),
+ withHandlers({
+    onDragStop: ({ onDragRight, onDragLeft, setResetPosition, setPosition, setAnimateOutRight, setAnimateOutLeft }) => (e, data) => {
+      if (data.lastX > -120 && data.lastX < 120) {
+        setResetPosition(true);
+        setTimeout(() => {
+          setResetPosition(false);
+          setPosition({ x: 0, y: 0 });
+          setPosition(null);
+        }, 300);
+        return;
+      }
 
-  }
-  return (
-    <Draggable>
-      <div className="card">
-        <div className="image" style={imageStyle} />
-        <h2>{name}</h2>
-      </div>
-    </Draggable>
-  );
-};
-
-Card.propTypes = {
-  name: PropTypes.string,
-  imageSrc: PropTypes.string,
-};
-
-Card.defaultProps = {
-  name: '',
-  imageSrc: '',
-};
-
-export default Card;
+      if (data.lastX > 120) {
+        setAnimateOutRight(true);
+        return;
+      }
+      
+      if (data.lastX < -120) {
+        setAnimateOutLeft(true);
+      }
+    },
+  }),
+)(DraggableCard);

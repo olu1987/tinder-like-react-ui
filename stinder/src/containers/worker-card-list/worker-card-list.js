@@ -5,9 +5,11 @@ import DraggableCardsList from '../../components/draggable-cards-list';
 
 const WorkerCardList = ({
  workerReducer,
+ onDragStop,
 }) => (
   <DraggableCardsList
     items={workerReducer ? workerReducer.workers : []}
+    onDragStop={onDragStop}
   />
 );
 
