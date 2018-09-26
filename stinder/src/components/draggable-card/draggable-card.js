@@ -14,6 +14,7 @@ const DraggableCard = ({
   animateOutRight,
   animateOutLeft,
   removeCard,
+  likeWorker,
 }) => {
   const imageStyle = {
     backgroundImage: `url(${imageSrc})`,
@@ -31,6 +32,7 @@ const DraggableCard = ({
         ${resetPosition ? 'reset' : ''}
         ${animateOutRight ? 'animate-out-right' : ''}
         ${animateOutLeft ? 'animate-out-left' : ''}`
+       
       }>
         <div className="image" style={imageStyle} />
         <h2>{name}</h2>

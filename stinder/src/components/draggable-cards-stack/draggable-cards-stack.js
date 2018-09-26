@@ -6,8 +6,8 @@ import './draggable-cards-stack.css';
 
 const DraggableCardsList = ({
   items,
-  onDragStart,
-  onDragStop,
+  onSwipeRight,
+  onSwipeLeft,
 }) => (
   <div className="draggable-cards-stack">
     <div className="card placeholder">
@@ -16,10 +16,12 @@ const DraggableCardsList = ({
     { items.map(item => (
       <DraggableCard
         key={item.id}
+        id={item.id}
         name={item.name}
         imageSrc={item.image_src}
-        onDragStart={onDragStart}
-        onDragStop={onDragStop}
+        onSwipeRight={onSwipeRight}
+        onSwipeLeft={onSwipeLeft}
+        item={item}
       />
     )) }
   </div>
@@ -27,14 +29,14 @@ const DraggableCardsList = ({
 
 DraggableCardsList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any),
-  onDragStart: PropTypes.func,
-  onDragStop: PropTypes.func,
+  onSwipeRight: PropTypes.func,
+  onSwipeLeft: PropTypes.func,
 };
 
 DraggableCardsList.defaultProps = {
   items: [],
-  onDragStart: () => {},
-  onDragStop: () => {},
+  onSwipeRight: () => {},
+  onSwipeLeft: () => {},
 };
 
 export default DraggableCardsList;

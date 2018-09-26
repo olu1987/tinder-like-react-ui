@@ -1,15 +1,26 @@
 import { compose, withHandlers, withState } from 'recompose';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
 import DraggableCard from './draggable-card';
 
-
 export default compose(
- withState('position', 'setPosition', null),
- withState('resetPosition', 'setResetPosition', false),
- withState('animateOutRight', 'setAnimateOutRight', false),
- withState('animateOutLeft', 'setAnimateOutLeft', false),
- withState('removeCard', 'setRemoveCard', false),
- withHandlers({
-    onDragStop: ({ setRemoveCard, setResetPosition, setPosition, setAnimateOutRight, setAnimateOutLeft }) => (e, data) => {
+  withState('position', 'setPosition', null),
+  withState('resetPosition', 'setResetPosition', false),
+  withState('animateOutRight', 'setAnimateOutRight', false),
+  withState('animateOutLeft', 'setAnimateOutLeft', false),
+  withState('removeCard', 'setRemoveCard', false),
+  withHandlers({
+    onDragStop: ({
+      setRemoveCard,
+      setResetPosition,
+      setPosition,
+      setAnimateOutRight,
+      setAnimateOutLeft,
+      onSwipeRight,
+      onSwipeLeft,
+      item,
+    }) => (e, data) => {
       if (data.lastX > -120 && data.lastX < 120) {
         setResetPosition(true);
         setTimeout(() => {
@@ -25,12 +36,14 @@ export default compose(
 
       if (data.lastX > 120) {
         setAnimateOutRight(true);
+        onSwipeRight(item);
         removeCard();
         return;
       }
       
       if (data.lastX < -120) {
         setAnimateOutLeft(true);
+        onSwipeLeft(item);
         removeCard();
       }
     },
