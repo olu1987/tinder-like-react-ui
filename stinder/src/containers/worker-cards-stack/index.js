@@ -1,6 +1,6 @@
-import { compose, withState, withProps, withHandlers } from 'recompose';
+import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import WorkerCardList from './worker-card-list';
+import WorkerCardList from './worker-cards-stack';
 
 const mapStateToProps = state => ({
   ...state,

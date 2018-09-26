@@ -13,12 +13,14 @@ const DraggableCard = ({
   resetPosition,
   animateOutRight,
   animateOutLeft,
+  removeCard,
 }) => {
   const imageStyle = {
     backgroundImage: `url(${imageSrc})`,
 
   }
   return (
+    !removeCard &&
     <Draggable
       onStart={onDragStart}
       onStop={onDragStop}

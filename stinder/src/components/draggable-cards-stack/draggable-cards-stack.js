@@ -2,28 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DraggableCard from '../draggable-card';
-import './draggable-cards-list.css';
+import './draggable-cards-stack.css';
 
 const DraggableCardsList = ({
   items,
   onDragStart,
   onDragStop,
 }) => (
-  <ul className="draggable-cards-list">
-    <li className="placeholder">
-      <div>No Results</div>
-    </li>
+  <div className="draggable-cards-stack">
     { items.map(item => (
-      <li key={item.id}>
-        <DraggableCard
-          name={item.name}
-          imageSrc={item.image_src}
-          onDragStart={onDragStart}
-          onDragStop={onDragStop}
-        />
-      </li>)) }
-      
-  </ul>
+      <DraggableCard
+        key={item.id}
+        name={item.name}
+        imageSrc={item.image_src}
+        onDragStart={onDragStart}
+        onDragStop={onDragStop}
+      />
+    )) }
+  </div>
 );
 
 DraggableCardsList.propTypes = {

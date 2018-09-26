@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import DraggableCardsList from '../../components/draggable-cards-list';
+import DraggableCardsStack from '../../components/draggable-cards-stack';
 
 const WorkerCardList = ({
  workerReducer,
  onDragStop,
 }) => (
-  <DraggableCardsList
+  <DraggableCardsStack
     items={workerReducer ? workerReducer.workers : []}
     onDragStop={onDragStop}
   />

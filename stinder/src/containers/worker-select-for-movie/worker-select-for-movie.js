@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import YesButton from '../../components/action-buttons/yes-button';
 import NoButton from '../../components/action-buttons/no-button';
 
-import WorkerCardList from '../worker-card-list';
+import WorkerCardStack from '../worker-cards-stack';
 import './worker-select-for-movie.css';
 
 const WorkerSelectForMovie = ({ selectedMovie }) => (
   <div className="worker-select-for-movie">
     <img className="movie-logo" alt={selectedMovie.name} src={selectedMovie.image_src} />
     <h2>Position: Stunt Double</h2>
-    <WorkerCardList />
+    <WorkerCardStack />
     <div className="actions">
       <NoButton />
       <YesButton />

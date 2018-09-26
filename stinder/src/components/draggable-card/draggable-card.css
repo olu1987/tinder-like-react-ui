@@ -4,6 +4,7 @@
   border-radius: 10px;
   border: 2px solid #cccccc;
   padding: 10px 20px;
+  transition: top 300ms;
 }
 
 .card > .image {
