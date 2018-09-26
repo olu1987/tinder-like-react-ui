@@ -13,8 +13,8 @@ const WorkerSelectForMovie = ({ selectedMovie }) => (
     <h2>Position: Stunt Double</h2>
     <WorkerCardList />
     <div className="actions">
-      <YesButton />
       <NoButton />
+      <YesButton />
     </div>
   </div>
 );
