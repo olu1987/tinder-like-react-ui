@@ -18,8 +18,8 @@ export default compose(
   withState('notification', 'setNotification', ''),
   withState('timeoutId', 'setTimeoutId', ''),
   withPropsOnChange((props, nextProps) => props.userReducer.likedWorkers.length
-  !== nextProps.userReducer.likedWorkers.length, ({ setWorkerLiked, userReducer,
-    setNotification, setTimeoutId, timeoutId,
+  !== nextProps.userReducer.likedWorkers.length, ({
+    setWorkerLiked, userReducer, setNotification, setTimeoutId, timeoutId,
   }) => {
     if (userReducer.likedWorkers.length) {
       setWorkerLiked(userReducer.likedWorkers[userReducer.likedWorkers.length - 1]);
@@ -30,8 +30,8 @@ export default compose(
     }
   }),
   withPropsOnChange((props, nextProps) => props.userReducer.dislikedWorkers.length
-  !== nextProps.userReducer.dislikedWorkers.length, ({ setWorkerDisliked, userReducer, 
-    setNotification, setTimeoutId, timeoutId,
+  !== nextProps.userReducer.dislikedWorkers.length, ({
+    setWorkerDisliked, userReducer, setNotification, setTimeoutId, timeoutId,
   }) => {
     if (userReducer.dislikedWorkers.length) {
       setWorkerDisliked(userReducer.dislikedWorkers[userReducer.dislikedWorkers.length - 1]);

@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import DraggableCard from '../draggable-card';
 import './draggable-cards-stack.css';
 
-const DraggableCardsList = ({
+const DraggableCardsStack = ({
   items,
   onSwipeRight,
   onSwipeLeft,
+  itemToSlideRight,
+  itemToSlideLeft,
 }) => (
   <div className="draggable-cards-stack">
     <div className="card placeholder">
@@ -21,22 +23,28 @@ const DraggableCardsList = ({
         imageSrc={item.image_src}
         onSwipeRight={onSwipeRight}
         onSwipeLeft={onSwipeLeft}
+        forceSlideRight={itemToSlideRight === item}
+        forceSlideLeft={itemToSlideLeft === item}
         item={item}
       />
     )) }
   </div>
 );
 
-DraggableCardsList.propTypes = {
+DraggableCardsStack.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any),
   onSwipeRight: PropTypes.func,
   onSwipeLeft: PropTypes.func,
+  itemToSlideRight: PropTypes.objectOf(PropTypes.any),
+  itemToSlideLeft: PropTypes.objectOf(PropTypes.any),
 };
 
-DraggableCardsList.defaultProps = {
+DraggableCardsStack.defaultProps = {
   items: [],
   onSwipeRight: () => {},
   onSwipeLeft: () => {},
+  itemToSlideRight: {},
+  itemToSlideLeft: {},
 };
 
-export default DraggableCardsList;
+export default DraggableCardsStack;

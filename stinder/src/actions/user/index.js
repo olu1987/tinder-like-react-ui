@@ -14,6 +14,13 @@ export const dislikeWorker = worker => (dispatch) => {
   });
 };
 
+export const setActiveResource = resource => (dispatch) => {
+  dispatch({
+    type: actionTypes.SET_ACTIVE_RESOURCE,
+    payload: resource,
+  });
+};
+
 export default {
   likeWorker,
   dislikeWorker,

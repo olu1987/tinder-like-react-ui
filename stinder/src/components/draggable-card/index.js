@@ -1,6 +1,4 @@
-import { compose, withHandlers, withState } from 'recompose';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { compose, withHandlers, withState, withPropsOnChange } from 'recompose';
 
 import DraggableCard from './draggable-card';
 
@@ -11,15 +9,28 @@ export default compose(
   withState('animateOutLeft', 'setAnimateOutLeft', false),
   withState('removeCard', 'setRemoveCard', false),
   withHandlers({
+    slideRight: ({ setAnimateOutRight, onSwipeRight, setRemoveCard }) => (item) => {
+      setAnimateOutRight(true);
+      item && onSwipeRight(item);
+      setTimeout(() => {
+        setRemoveCard(true);
+      }, 300);
+    },
+    slideLeft: ({ setAnimateOutLeft, onSwipeLeft, setRemoveCard }) => (item) => {
+      setAnimateOutLeft(true);
+      item && onSwipeLeft(item);
+      setTimeout(() => {
+        setRemoveCard(true);
+      }, 300);
+    },
+  }),
+  withHandlers({
     onDragStop: ({
-      setRemoveCard,
       setResetPosition,
       setPosition,
-      setAnimateOutRight,
-      setAnimateOutLeft,
-      onSwipeRight,
-      onSwipeLeft,
       item,
+      slideRight,
+      slideLeft,
     }) => (e, data) => {
       if (data.lastX > -120 && data.lastX < 120) {
         setResetPosition(true);
@@ -30,22 +41,23 @@ export default compose(
         }, 300);
         return;
       }
-      const removeCard = () => setTimeout(() => {
-        setRemoveCard(true);
-      }, 300);
 
       if (data.lastX > 120) {
-        setAnimateOutRight(true);
-        onSwipeRight(item);
-        removeCard();
+        slideRight(item);
         return;
       }
       
       if (data.lastX < -120) {
-        setAnimateOutLeft(true);
-        onSwipeLeft(item);
-        removeCard();
+        slideLeft(item);
       }
     },
+  }),
+  withPropsOnChange(['forceSlideRight', 'forceSlideLeft'], ({ slideRight, forceSlideRight, forceSlideLeft }) => {
+    if (forceSlideRight) {
+      return slideRight();
+    }
+    if (forceSlideLeft) {
+      return forceSlideLeft();
+    }
   }),
 )(DraggableCard);

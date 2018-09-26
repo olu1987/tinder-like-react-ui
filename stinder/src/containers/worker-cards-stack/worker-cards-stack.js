@@ -5,26 +5,27 @@ import DraggableCardsStack from '../../components/draggable-cards-stack';
 
 const WorkerCardList = ({
   workerReducer,
-  likeWorker,
-  dislikeWorker,
+  onSwipeRight,
+  onSwipeLeft,
 }) => (
   <DraggableCardsStack
     items={workerReducer ? workerReducer.workers : []}
-    onSwipeRight={likeWorker}
-    onSwipeLeft={dislikeWorker}
+    onSwipeRight={onSwipeRight}
+    onSwipeLeft={onSwipeLeft}
+    itemToSlideRight={workerReducer.workers[0]}
   />
 );
 
 WorkerCardList.propTypes = {
   workerReducer: PropTypes.objectOf(PropTypes.any),
-  likeWorker: PropTypes.func,
-  dislikeWorker: PropTypes.func,
+  onSwipeRight: PropTypes.func,
+  onSwipeLeft: PropTypes.func,
 };
 
 WorkerCardList.defaultProps = {
   workerReducer: {},
-  likeWorker: () => {},
-  dislikeWorker: () => {},
+  onSwipeRight: () => {},
+  onSwipeLeft: () => {},
 };
 
 export default WorkerCardList;

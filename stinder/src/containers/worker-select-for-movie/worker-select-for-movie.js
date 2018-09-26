@@ -22,7 +22,7 @@ const WorkerSelectForMovie = ({ selectedMovie, workerLiked, workerDisliked, noti
         className={notification === notificationTypes.WARNING ? 'active' : ''}
        /> 
       <img className="movie-logo" alt={selectedMovie.name} src={selectedMovie.image_src} />
-      <h2>Position: Stunt Double</h2>
+      <h1>Position: Stunt Double</h1>
       <WorkerCardStack />
       <div className="actions">
         <NoButton />
