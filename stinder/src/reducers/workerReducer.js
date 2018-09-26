@@ -3,7 +3,7 @@ import data from '../mock-data/users.json';
 
 export default (state = data, action) => {
   switch (action.type) {
-    case actionTypes.GET_USERS:
+    case actionTypes.GET_WORKERS:
       return {
         result: action.payload,
       };

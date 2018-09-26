@@ -1,3 +1,3 @@
 export default {
-  GET_USERS: 'get-users',
+  GET_WORKERS: 'get-workers',
 };

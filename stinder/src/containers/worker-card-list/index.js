@@ -1,6 +1,6 @@
 import { compose, withState, withProps, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
-import UserCardList from './user-card-list';
+import WorkerCardList from './worker-card-list';
 
 const mapStateToProps = state => ({
   ...state,
@@ -11,4 +11,4 @@ export default compose(
     mapStateToProps,
     null,
   ),
-)(UserCardList);
+)(WorkerCardList);
