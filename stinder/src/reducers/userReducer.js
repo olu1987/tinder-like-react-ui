@@ -4,11 +4,13 @@ export default (state = { likedWorkers: [], dislikedWorkers: [] }, action) => {
   switch (action.type) {
     case actionTypes.LIKE_WORKER:
       return {
-        result: action.payload,
+        ...state,
+        likedWorkers: [...state.likedWorkers, action.payload],
       };
     case actionTypes.DISLIKE_WORKER:
       return {
-        result: action.payload,
+        ...state,
+        dislikedWorkers: [...state.dislikedWorkers, action.payload],
       };
     default:
       return state;
