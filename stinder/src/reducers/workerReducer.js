@@ -1,5 +1,5 @@
 import actionTypes from '../action-types';
-import data from '../mock-data/users.json';
+import data from '../mock-data/workers.json';
 
 export default (state = data, action) => {
   switch (action.type) {

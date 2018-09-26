@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Draggable from 'react-draggable';
 
-import './card.css';
+import './draggable-card.css';
 
 const Card = ({ name, imageSrc }) => {
   const imageStyle = {
@@ -9,10 +10,12 @@ const Card = ({ name, imageSrc }) => {
 
   }
   return (
-    <div className="card">
-      <div className="image" style={imageStyle} />
-      <h2>{name}</h2>
-    </div>
+    <Draggable>
+      <div className="card">
+        <div className="image" style={imageStyle} />
+        <h2>{name}</h2>
+      </div>
+    </Draggable>
   );
 };
 
