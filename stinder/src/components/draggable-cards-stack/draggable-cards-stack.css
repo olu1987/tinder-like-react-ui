@@ -15,6 +15,10 @@
   margin-right: auto;
 }
 
+.draggable-cards-stack > .card.placeholder {
+  height: 325px;
+}
+
 .draggable-cards-stack > .card:last-child {
    top: -10px;
 }

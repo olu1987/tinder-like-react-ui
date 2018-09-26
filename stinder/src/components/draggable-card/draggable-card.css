@@ -5,6 +5,7 @@
   border: 2px solid #cccccc;
   padding: 10px 20px;
   transition: top 300ms;
+  height: 325px;
 }
 
 .card > .image {

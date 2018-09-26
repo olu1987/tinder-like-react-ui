@@ -10,6 +10,9 @@ const DraggableCardsList = ({
   onDragStop,
 }) => (
   <div className="draggable-cards-stack">
+    <div className="card placeholder">
+      <h2>No more stuntmen</h2>
+    </div>
     { items.map(item => (
       <DraggableCard
         key={item.id}
