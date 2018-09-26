@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import UserCardList from './containers/user-card-list';
+
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        { JSON.stringify(this.props.userReducer) }
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <UserCardList />
+  </div>
+);
 
-const mapStateToProps = state => ({
-  ...state,
-});
-
-export default connect(mapStateToProps, null)(App);
+export default App;
