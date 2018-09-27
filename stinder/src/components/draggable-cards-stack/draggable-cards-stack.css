@@ -34,3 +34,12 @@
 .draggable-cards-stack > .card:first-child {
    top: 0;
 }
+
+.upgrade-button {
+  background: red;
+  color: #fff;
+  font-size: 1.5em;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid grey;
+}

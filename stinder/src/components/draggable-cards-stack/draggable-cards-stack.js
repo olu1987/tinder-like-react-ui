@@ -10,10 +10,13 @@ const DraggableCardsStack = ({
   onSwipeLeft,
   itemToSlideRight,
   itemToSlideLeft,
+  placeHolderText,
 }) => (
   <div className="draggable-cards-stack">
     <div className="card placeholder">
-      <h2>No more stuntmen</h2>
+      <h2>{ placeHolderText }</h2>
+      <h3>Cant wait till tomorrow?</h3>
+      <button type="button" className="upgrade-button">Upgrade</button>
     </div>
     { items.map(item => (
       <DraggableCard
@@ -37,6 +40,7 @@ DraggableCardsStack.propTypes = {
   onSwipeLeft: PropTypes.func,
   itemToSlideRight: PropTypes.objectOf(PropTypes.any),
   itemToSlideLeft: PropTypes.objectOf(PropTypes.any),
+  placeHolderText: PropTypes.string,
 };
 
 DraggableCardsStack.defaultProps = {
@@ -45,6 +49,7 @@ DraggableCardsStack.defaultProps = {
   onSwipeLeft: () => {},
   itemToSlideRight: {},
   itemToSlideLeft: {},
+  placeHolderText: '',
 };
 
 export default DraggableCardsStack;

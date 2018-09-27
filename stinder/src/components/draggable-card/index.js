@@ -32,7 +32,7 @@ export default compose(
       slideRight,
       slideLeft,
     }) => (e, data) => {
-      if (data.lastX > -120 && data.lastX < 120) {
+      if (data.lastX > -80 && data.lastX < 80) {
         setResetPosition(true);
         setTimeout(() => {
           setResetPosition(false);
@@ -42,11 +42,11 @@ export default compose(
         return;
       }
 
-      if (data.lastX > 120) {
+      if (data.lastX >= 80) {
         slideRight(item);
         return;
       }
-      if (data.lastX < -120) {
+      if (data.lastX <= -80) {
         slideLeft(item);
       }
     },
