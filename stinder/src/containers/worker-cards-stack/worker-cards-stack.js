@@ -13,7 +13,7 @@ const WorkerCardList = ({
     items={workerReducer ? workerReducer.workers : []}
     onSwipeRight={onSwipeRight}
     onSwipeLeft={onSwipeLeft}
-    placeHolderText={"Sorry, looks like thats your limit of swipes"}
+    placeHolderText="Sorry, looks like thats your limit of swipes"
     itemToSlideRight={userReducer.likedWorkers[userReducer.likedWorkers.length - 1]}
     itemToSlideLeft={userReducer.dislikedWorkers[userReducer.dislikedWorkers.length - 1]}
   />

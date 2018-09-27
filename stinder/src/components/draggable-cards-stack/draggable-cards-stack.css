@@ -17,6 +17,10 @@
 
 .draggable-cards-stack > .card.placeholder {
   height: 325px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .draggable-cards-stack > .card:last-child {
