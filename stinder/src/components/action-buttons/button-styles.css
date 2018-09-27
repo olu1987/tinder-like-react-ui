@@ -2,6 +2,16 @@ button {
   background-color: #0000ff00;
   border: none;
   font-size: 1em;
+  cursor: pointer;
+}
+
+button > i {
+  transition: opacity ease-in-out 300ms;
+  opacity: 0.5;
+}
+
+button:hover > i {
+  opacity: 1;
 }
 
 button:focus {
