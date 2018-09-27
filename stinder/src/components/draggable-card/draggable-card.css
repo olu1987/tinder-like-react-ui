@@ -1,9 +1,8 @@
 .card {
-  width: 210px;
+  width: 250px;
   background: #fff;
   border-radius: 10px;
   border: 2px solid #cccccc;
-  padding: 10px 20px;
   transition: top 300ms;
   height: 325px;
 }
@@ -12,14 +11,22 @@
   width: 100%;
   height: 250px;
   display: flex;
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
 }
 
 .card > h2 {
   font-weight: 100;
   margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.card > p {
+  margin: 0;
+  color: coral;
 }
 
 .card.reset {

@@ -23,6 +23,7 @@ const DraggableCardsStack = ({
         key={item.id}
         id={item.id}
         name={item.name}
+        description={`Age: ${item.age} - Location: ${item.location}`}
         imageSrc={item.image_src}
         onSwipeRight={onSwipeRight}
         onSwipeLeft={onSwipeLeft}

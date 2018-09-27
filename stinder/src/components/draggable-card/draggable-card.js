@@ -14,7 +14,7 @@ const DraggableCard = ({
   animateOutRight,
   animateOutLeft,
   removeCard,
-  likeWorker,
+  description,
 }) => {
   const imageStyle = {
     backgroundImage: `url(${imageSrc})`,
@@ -36,6 +36,7 @@ const DraggableCard = ({
       }>
         <div className="image" style={imageStyle} />
         <h2>{name}</h2>
+        <p>{description}</p>
       </div>
     </Draggable>
   );
@@ -43,6 +44,7 @@ const DraggableCard = ({
 
 DraggableCard.propTypes = {
   name: PropTypes.string,
+  description: PropTypes.string,
   imageSrc: PropTypes.string,
   onDragStart: PropTypes.func,
   onDragStop: PropTypes.func,
@@ -54,6 +56,7 @@ DraggableCard.propTypes = {
 
 DraggableCard.defaultProps = {
   name: '',
+  description: '',
   imageSrc: '',
   onDragStart: () => {},
   onDragStop: () => {},
