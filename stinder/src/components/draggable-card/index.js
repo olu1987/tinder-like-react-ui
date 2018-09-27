@@ -52,12 +52,12 @@ export default compose(
       }
     },
   }),
-  withPropsOnChange(['forceSlideRight', 'forceSlideLeft'], ({ slideRight, forceSlideRight, forceSlideLeft }) => {
+  withPropsOnChange(['forceSlideRight', 'forceSlideLeft'], ({ slideRight, slideLeft, forceSlideRight, forceSlideLeft }) => {
     if (forceSlideRight) {
       return slideRight();
     }
     if (forceSlideLeft) {
-      return forceSlideLeft();
+      return slideLeft();
     }
   }),
 )(DraggableCard);

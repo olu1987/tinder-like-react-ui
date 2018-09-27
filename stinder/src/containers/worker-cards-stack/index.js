@@ -1,4 +1,4 @@
-import { compose, withHandlers } from 'recompose';
+import { compose, withHandlers, lifecycle } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import WorkerCardList from './worker-cards-stack';
@@ -33,5 +33,11 @@ export default compose(
       dislikeWorker(worker);
       onWorkerSelect(worker);
     },
+  }),
+  lifecycle({
+    componentDidMount() {
+      const defaultActiveWorker = this.props.workerReducer.workers[this.props.workerReducer.workers.length - 1];
+      this.props.setActiveResource(defaultActiveWorker);
+    }
   }),
 )(WorkerCardList);

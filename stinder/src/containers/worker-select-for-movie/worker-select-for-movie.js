@@ -10,7 +10,14 @@ import notificationTypes from '../../components/notifications/constants/notifica
 
 import './worker-select-for-movie.css';
 
-const WorkerSelectForMovie = ({ selectedMovie, workerLiked, workerDisliked, notification }) => {
+const WorkerSelectForMovie = ({ 
+  selectedMovie,
+  workerLiked,
+  workerDisliked,
+  notification,
+  onNoButtonClick,
+  onYesButtonClick,
+}) => {
   return (
     <div className="worker-select-for-movie">
       <SuccessNotification
@@ -25,8 +32,8 @@ const WorkerSelectForMovie = ({ selectedMovie, workerLiked, workerDisliked, noti
       <h1>Position: Stunt Double</h1>
       <WorkerCardStack />
       <div className="actions">
-        <NoButton />
-        <YesButton />
+        <NoButton onClick={onNoButtonClick} />
+        <YesButton onClick={onYesButtonClick} />
       </div>
     </div>
   );

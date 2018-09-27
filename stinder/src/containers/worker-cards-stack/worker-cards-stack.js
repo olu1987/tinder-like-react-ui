@@ -7,12 +7,14 @@ const WorkerCardList = ({
   workerReducer,
   onSwipeRight,
   onSwipeLeft,
+  userReducer,
 }) => (
   <DraggableCardsStack
     items={workerReducer ? workerReducer.workers : []}
     onSwipeRight={onSwipeRight}
     onSwipeLeft={onSwipeLeft}
-    itemToSlideRight={workerReducer.workers[0]}
+    itemToSlideRight={userReducer.likedWorkers[userReducer.likedWorkers.length - 1]}
+    itemToSlideLeft={userReducer.dislikedWorkers[userReducer.dislikedWorkers.length - 1]}
   />
 );
 
