@@ -1,4 +1,6 @@
-import { compose, withState, withPropsOnChange, withHandlers } from 'recompose';
+import {
+  compose, withState, withPropsOnChange, withHandlers,
+} from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import WorkerSelectForMovie from './worker-select-for-movie';
@@ -20,8 +22,8 @@ export default compose(
     mapDispatchToProps,
   ),
   withState('selectedMovie', 'setSelectedMovie', ({ movieReducer }) => movieReducer.movies[0]),
-  withState('workerLiked', 'setWorkerLiked', ''),
-  withState('workerDisliked', 'setWorkerDisliked', ''),
+  withState('workerLiked', 'setWorkerLiked', {}),
+  withState('workerDisliked', 'setWorkerDisliked', {}),
   withState('notification', 'setNotification', ''),
   withState('timeoutId', 'setTimeoutId', ''),
   withHandlers({
@@ -32,11 +34,11 @@ export default compose(
   }),
   withHandlers({
     onYesButtonClick: ({ userReducer, likeWorker, onWorkerSelect }) => () => {
-      likeWorker(userReducer.activeResource);
+      userReducer.activeResource && likeWorker(userReducer.activeResource);
       onWorkerSelect(userReducer.activeResource);
     },
     onNoButtonClick: ({ userReducer, dislikeWorker, onWorkerSelect }) => () => {
-      dislikeWorker(userReducer.activeResource);
+      userReducer.activeResource && dislikeWorker(userReducer.activeResource);
       onWorkerSelect(userReducer.activeResource);
     },
   }),

@@ -46,7 +46,6 @@ export default compose(
         slideRight(item);
         return;
       }
-      
       if (data.lastX < -120) {
         slideLeft(item);
       }

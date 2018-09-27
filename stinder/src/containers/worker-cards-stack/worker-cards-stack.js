@@ -22,12 +22,14 @@ WorkerCardList.propTypes = {
   workerReducer: PropTypes.objectOf(PropTypes.any),
   onSwipeRight: PropTypes.func,
   onSwipeLeft: PropTypes.func,
+  userReducer: PropTypes.objectOf(PropTypes.any),
 };
 
 WorkerCardList.defaultProps = {
   workerReducer: {},
   onSwipeRight: () => {},
   onSwipeLeft: () => {},
+  userReducer: {},
 };
 
 export default WorkerCardList;

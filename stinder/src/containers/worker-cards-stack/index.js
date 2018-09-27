@@ -38,6 +38,6 @@ export default compose(
     componentDidMount() {
       const defaultActiveWorker = this.props.workerReducer.workers[this.props.workerReducer.workers.length - 1];
       this.props.setActiveResource(defaultActiveWorker);
-    }
+    },
   }),
 )(WorkerCardList);
